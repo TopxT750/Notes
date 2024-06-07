@@ -110,7 +110,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **Guna UI Framework** for providing modern UI controls.
 - **Open Source Community** for the valuable libraries and tools used in this project.
 
----
-
 Thank you for using PC Manager! We hope it helps you keep your system running smoothly.
-```
