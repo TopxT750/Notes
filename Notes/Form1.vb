@@ -1,5 +1,8 @@
-﻿Imports System.IO
+﻿Imports System.Deployment.Application
+Imports System.IO
 Imports System.Net.Http
+Imports Guna.UI2.WinForms
+Imports Newtonsoft.Json.Linq
 
 Public Class Form1
 
@@ -16,6 +19,8 @@ Public Class Form1
         rtb.Dock = DockStyle.Fill
         rtb.BorderStyle = BorderStyle.None
         rtb.ContextMenuStrip = RtbContextMenuStrip
+        AddHandler rtb.TextChanged, AddressOf RichTextBox_TextChanged
+        AddHandler rtb.SelectionChanged, AddressOf RichTextBox_SelectionChanged
         newTab.Controls.Add(rtb)
         TabControl.TabPages.Add(newTab)
         TabControl.SelectedTab = newTab
@@ -275,55 +280,102 @@ Public Class Form1
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
-        MessageBox.Show("Made by Aryan Sharma." + vbNewLine + "Copyright 2024 All Rights Reservered", "About", MessageBoxButtons.OK)
+        MessageBox.Show($"Notes Version: {My.Application.Info.Version}" + vbNewLine + "Made by Aryan Sharma." + vbNewLine + "Copyright 2024 All Rights Reserved", "About", MessageBoxButtons.OK)
     End Sub
 
     Private Async Sub CheckForUpdates()
-        Dim currentVersion As String = "1.0.0.0" ' Current version of your application
-        Dim latestVersion As String = Await GetLatestReleaseVersion()
+        Try
+            Dim latestVersion As String = Await GetLatestReleaseVersion()
+            Dim currentVersion As String = Application.ProductVersion
 
-        If Not String.IsNullOrEmpty(latestVersion) AndAlso latestVersion <> currentVersion Then
-            Dim result As DialogResult = MessageBox.Show("A new version is available. Do you want to update?", "Update Available", MessageBoxButtons.YesNo)
-            If result = DialogResult.Yes Then
-                Await DownloadLatestRelease()
-                MessageBox.Show("Update downloaded. Please restart the application to apply the update.", "Update Complete")
+            If latestVersion <> currentVersion Then
+                If MessageBox.Show("A new version is available. Do you want to download and install it?", "Update Available", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                    Await DownloadAndInstallLatestRelease()
+                End If
+            Else
+                MessageBox.Show("You are already using the latest version.")
             End If
-        Else
-            MessageBox.Show("Your application is up to date.", "No Updates Available")
-        End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while checking for updates: " & ex.Message)
+        End Try
     End Sub
 
     Private Async Function GetLatestReleaseVersion() As Task(Of String)
-        Dim latestVersion As String = String.Empty
-        Dim url As String = "https://github.com/TopxT750/Notes/releases/"
-
         Using client As New HttpClient()
-            client.DefaultRequestHeaders.Add("User-Agent", "Notes")
+            Dim url As String = "https://api.github.com/repos/TopxT750/notes/releases/latest"
+            client.DefaultRequestHeaders.UserAgent.TryParseAdd("request") ' GitHub API requires a user agent
+
             Dim response As HttpResponseMessage = Await client.GetAsync(url)
+            response.EnsureSuccessStatusCode()
 
-            If response.IsSuccessStatusCode Then
-                Dim json As String = Await response.Content.ReadAsStringAsync()
-                Dim release As Newtonsoft.Json.Linq.JObject = Newtonsoft.Json.Linq.JObject.Parse(json)
-                latestVersion = release("tag_name").ToString()
-            End If
-        End Using
+            Dim responseContent As String = Await response.Content.ReadAsStringAsync()
 
-        Return latestVersion
-    End Function
-
-    Private Async Function DownloadLatestRelease() As Task
-        Dim url As String = "https://github.com/TopxT750/Notes/releases/latest/download/Notes.Setup.msi"
-        Dim downloadPath As String = Path.Combine(Application.StartupPath, "Notes.Setup.exe")
-
-        Using client As New HttpClient()
-            Dim response As HttpResponseMessage = Await client.GetAsync(url)
-            If response.IsSuccessStatusCode Then
-                Using fileStream As New FileStream(downloadPath, FileMode.Create, FileAccess.Write, FileShare.None)
-                    Await response.Content.CopyToAsync(fileStream)
-                End Using
+            ' Check if the response content is JSON or HTML
+            If response.Content.Headers.ContentType.MediaType = "application/json" Then
+                Dim json As JObject = JObject.Parse(responseContent)
+                Return json("tag_name").ToString() ' Adjust according to your JSON structure
+            Else
+                Throw New Exception("Unexpected response format.")
             End If
         End Using
     End Function
+
+    Private Async Function DownloadAndInstallLatestRelease() As Task
+        Using client As New HttpClient()
+            ' Get the latest release information
+            Dim url As String = "https://api.github.com/repos/TopxT750/notes/releases/latest"
+            client.DefaultRequestHeaders.UserAgent.TryParseAdd("request") ' GitHub API requires a user agent
+
+            Dim response As HttpResponseMessage = Await client.GetAsync(url)
+            response.EnsureSuccessStatusCode()
+
+            Dim responseContent As String = Await response.Content.ReadAsStringAsync()
+            Dim json As JObject = JObject.Parse(responseContent)
+
+            ' Get the URL of the asset to download
+            Dim assetUrl As String = json("assets")(0)("browser_download_url").ToString() ' Adjust index if there are multiple assets
+
+            ' Download the asset
+            Dim downloadResponse As HttpResponseMessage = Await client.GetAsync(assetUrl)
+            downloadResponse.EnsureSuccessStatusCode()
+
+            ' Save the asset to a temporary file
+            Dim tempFilePath As String = Path.Combine(Path.GetTempPath(), "Notes Setup.msi") ' Adjust the file extension if needed
+            Using fileStream As New FileStream(tempFilePath, FileMode.Create, FileAccess.Write, FileShare.None)
+                Await downloadResponse.Content.CopyToAsync(fileStream)
+            End Using
+
+            ' Run the installer
+            Dim startInfo As New ProcessStartInfo(tempFilePath) With {
+                .UseShellExecute = True
+            }
+            Process.Start(startInfo)
+
+            ' Close the current application
+            Application.Exit()
+        End Using
+    End Function
+
+    Private Sub RichTextBox_TextChanged(sender As Object, e As EventArgs)
+        UpdateStatus()
+    End Sub
+
+    Private Sub RichTextBox_SelectionChanged(sender As Object, e As EventArgs)
+        UpdateStatus()
+    End Sub
+
+    Private Sub UpdateStatus()
+        If TabControl.SelectedTab IsNot Nothing AndAlso TabControl.SelectedTab.Controls.Count > 0 Then
+            Dim rtb As RichTextBox = CType(TabControl.SelectedTab.Controls(0), RichTextBox)
+            Dim words As Integer = rtb.Text.Split(New Char() {" "c, ControlChars.Lf, ControlChars.Tab, ControlChars.Cr}, StringSplitOptions.RemoveEmptyEntries).Length
+            ToolStripStatusLabel3.Text = $"Words: {words}"
+
+            Dim lineIndex As Integer = rtb.GetLineFromCharIndex(rtb.SelectionStart)
+            Dim columnIndex As Integer = rtb.SelectionStart - rtb.GetFirstCharIndexOfCurrentLine() + 1
+            ToolStripStatusLabel1.Text = $"Line: {lineIndex + 1}"
+            ToolStripStatusLabel2.Text = $"Column: {columnIndex}"
+        End If
+    End Sub
 
     Private Sub CheckForUpdatesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
         CheckForUpdates()
