@@ -286,39 +286,68 @@ Public Class Form1
     Private Async Sub CheckForUpdates()
         Try
             Dim latestVersion As String = Await GetLatestReleaseVersion()
-            Dim currentVersion As String = Application.ProductVersion
 
-            If latestVersion <> currentVersion Then
-                If MessageBox.Show("A new version is available. Do you want to download and install it?", "Update Available", MessageBoxButtons.YesNo) = DialogResult.Yes Then
-                    Await DownloadAndInstallLatestRelease()
+            ' Check if latestVersion is empty or null
+            If Not String.IsNullOrEmpty(latestVersion) Then
+                Dim currentVersion As Version = Version.Parse(Application.ProductVersion)
+                Dim latestVersionParsed As Version
+
+                ' Parse the latest version if it's a valid string
+                If Version.TryParse(latestVersion, latestVersionParsed) Then
+                    If latestVersionParsed > currentVersion Then
+                        If MessageBox.Show("A new version is available. Do you want to download and install it?", "Update Available", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                            Await DownloadAndInstallLatestRelease()
+                        End If
+                    Else
+                        MessageBox.Show("You are already using the latest version.")
+                    End If
+                Else
+                    MessageBox.Show("Failed to parse the latest version from the server.")
                 End If
             Else
-                MessageBox.Show("You are already using the latest version.")
+                MessageBox.Show("Failed to retrieve the latest version from the server.")
             End If
         Catch ex As Exception
             MessageBox.Show("An error occurred while checking for updates: " & ex.Message)
         End Try
     End Sub
 
+
     Private Async Function GetLatestReleaseVersion() As Task(Of String)
-        Using client As New HttpClient()
-            Dim url As String = "https://api.github.com/repos/TopxT750/notes/releases/latest"
-            client.DefaultRequestHeaders.UserAgent.TryParseAdd("request") ' GitHub API requires a user agent
+        Try
+            Using client As New HttpClient()
+                Dim url As String = "https://api.github.com/repos/TopxT750/notes/releases/latest"
+                client.DefaultRequestHeaders.UserAgent.TryParseAdd("request") ' GitHub API requires a user agent
 
-            Dim response As HttpResponseMessage = Await client.GetAsync(url)
-            response.EnsureSuccessStatusCode()
+                Dim response As HttpResponseMessage = Await client.GetAsync(url)
+                response.EnsureSuccessStatusCode()
 
-            Dim responseContent As String = Await response.Content.ReadAsStringAsync()
+                Dim responseContent As String = Await response.Content.ReadAsStringAsync()
 
-            ' Check if the response content is JSON or HTML
-            If response.Content.Headers.ContentType.MediaType = "application/json" Then
-                Dim json As JObject = JObject.Parse(responseContent)
-                Return json("tag_name").ToString() ' Adjust according to your JSON structure
-            Else
-                Throw New Exception("Unexpected response format.")
-            End If
-        End Using
+                ' Check if the response content is JSON
+                If response.Content.Headers.ContentType.MediaType = "application/json" Then
+                    Dim json As JObject = JObject.Parse(responseContent)
+                    Dim tagName As String = json("tag_name").ToString().Trim()
+
+                    ' Check if tagName is in the expected format (e.g., "v1.0.0")
+                    If tagName.StartsWith("v") AndAlso Version.TryParse(tagName.Substring(1), New Version()) Then
+                        Return tagName.Substring(1) ' Remove the leading "v"
+                    Else
+                        Throw New Exception("Unexpected version format.")
+                    End If
+                Else
+                    Throw New Exception("Unexpected response format.")
+                End If
+            End Using
+        Catch ex As Exception
+            ' Log the error message
+            Console.WriteLine("Error in GetLatestReleaseVersion: " & ex.Message)
+            ' Return an empty string or handle the error as needed
+            Return ""
+        End Try
     End Function
+
+
 
     Private Async Function DownloadAndInstallLatestRelease() As Task
         Using client As New HttpClient()
@@ -379,5 +408,68 @@ Public Class Form1
 
     Private Sub CheckForUpdatesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
         CheckForUpdates()
+    End Sub
+
+    Private Async Sub ShowLatestReleaseInfo()
+        Try
+            Dim releaseInfo As ReleaseInfo = Await GetLatestReleaseInfo()
+
+            If releaseInfo IsNot Nothing Then
+                MessageBox.Show($"Latest Version: {releaseInfo.Version}" & vbCrLf &
+                            $"Release Notes: {releaseInfo.Description}",
+                            "Latest Release Information", MessageBoxButtons.OK)
+            Else
+                MessageBox.Show("Failed to retrieve release information from the server.",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while fetching release information: " & ex.Message,
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Async Function GetLatestReleaseInfo() As Task(Of ReleaseInfo)
+        Try
+            Using client As New HttpClient()
+                Dim url As String = "https://api.github.com/repos/TopxT750/notes/releases/latest"
+                client.DefaultRequestHeaders.UserAgent.TryParseAdd("request") ' GitHub API requires a user agent
+
+                Dim response As HttpResponseMessage = Await client.GetAsync(url)
+                response.EnsureSuccessStatusCode()
+
+                Dim responseContent As String = Await response.Content.ReadAsStringAsync()
+
+                ' Check if the response content is JSON
+                If response.Content.Headers.ContentType.MediaType = "application/json" Then
+                    Dim json As JObject = JObject.Parse(responseContent)
+                    Dim tagName As String = json("tag_name").ToString().Trim()
+                    Dim description As String = json("body").ToString().Trim()
+
+                    ' Parse the version and description
+                    Dim version As Version = Version.Parse(tagName.Substring(1)) ' Remove the leading "v"
+                    Return New ReleaseInfo(version, description)
+                Else
+                    Throw New Exception("Unexpected response format.")
+                End If
+            End Using
+        Catch ex As Exception
+            Console.WriteLine("Error in GetLatestReleaseInfo: " & ex.Message)
+            Return Nothing
+        End Try
+    End Function
+
+    Private Class ReleaseInfo
+        Public Property Version As Version
+        Public Property Description As String
+
+        Public Sub New(version As Version, description As String)
+            Me.Version = version
+            Me.Description = description
+        End Sub
+    End Class
+
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        ShowLatestReleaseInfo()
     End Sub
 End Class

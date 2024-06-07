@@ -102,6 +102,7 @@ Partial Class Form1
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Guna2Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -208,56 +209,56 @@ Partial Class Form1
         '
         Me.NewToolStripMenuItem.Image = Global.Notes.My.Resources.Resources._New
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Open_Folder
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OpenToolStripMenuItem.Text = "Open..."
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(133, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Save
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'SaveAsToolStripMenuItem
         '
         Me.SaveAsToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Save_As
         Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
-        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveAsToolStripMenuItem.Text = "Save As..."
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(133, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         '
         'RecentFilesToolStripMenuItem
         '
         Me.RecentFilesToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Recent_Files
         Me.RecentFilesToolStripMenuItem.Name = "RecentFilesToolStripMenuItem"
-        Me.RecentFilesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.RecentFilesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RecentFilesToolStripMenuItem.Text = "Recent Files"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(133, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -271,52 +272,52 @@ Partial Class Form1
         '
         Me.UndoToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Undo
         Me.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem"
-        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UndoToolStripMenuItem.Text = "Undo"
         '
         'RedoToolStripMenuItem
         '
         Me.RedoToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Redo
         Me.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem"
-        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RedoToolStripMenuItem.Text = "Redo"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(119, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(177, 6)
         '
         'CutToolStripMenuItem
         '
         Me.CutToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Cut
         Me.CutToolStripMenuItem.Name = "CutToolStripMenuItem"
-        Me.CutToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.CutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CutToolStripMenuItem.Text = "Cut"
         '
         'CopyToolStripMenuItem
         '
         Me.CopyToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Copy
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CopyToolStripMenuItem.Text = "Copy"
         '
         'PasteToolStripMenuItem
         '
         Me.PasteToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Paste
         Me.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem"
-        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PasteToolStripMenuItem.Text = "Paste"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(119, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(177, 6)
         '
         'SelectAllToolStripMenuItem
         '
         Me.SelectAllToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Select_All
         Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SelectAllToolStripMenuItem.Text = "Select All"
         '
         'TabToolStripMenuItem
@@ -330,21 +331,21 @@ Partial Class Form1
         '
         Me.NewTabToolStripMenuItem.Image = Global.Notes.My.Resources.Resources._New
         Me.NewTabToolStripMenuItem.Name = "NewTabToolStripMenuItem"
-        Me.NewTabToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.NewTabToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NewTabToolStripMenuItem.Text = "New Tab"
         '
         'CloseTabToolStripMenuItem
         '
         Me.CloseTabToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Close
         Me.CloseTabToolStripMenuItem.Name = "CloseTabToolStripMenuItem"
-        Me.CloseTabToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.CloseTabToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CloseTabToolStripMenuItem.Text = "Close Tab"
         '
         'CloseAToolStripMenuItem
         '
         Me.CloseAToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Close_All_Tabs
         Me.CloseAToolStripMenuItem.Name = "CloseAToolStripMenuItem"
-        Me.CloseAToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.CloseAToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CloseAToolStripMenuItem.Text = "Close All Tabs"
         '
         'FormatToolStripMenuItem
@@ -358,26 +359,26 @@ Partial Class Form1
         '
         Me.FontToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Font
         Me.FontToolStripMenuItem.Name = "FontToolStripMenuItem"
-        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FontToolStripMenuItem.Text = "Font..."
         '
         'FontColorToolStripMenuItem
         '
         Me.FontColorToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Font_Color
         Me.FontColorToolStripMenuItem.Name = "FontColorToolStripMenuItem"
-        Me.FontColorToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.FontColorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FontColorToolStripMenuItem.Text = "Font Color..."
         '
         'BackgroundColorToolStripMenuItem
         '
         Me.BackgroundColorToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Background_Color
         Me.BackgroundColorToolStripMenuItem.Name = "BackgroundColorToolStripMenuItem"
-        Me.BackgroundColorToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.BackgroundColorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.BackgroundColorToolStripMenuItem.Text = "Background Color..."
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForUpdatesToolStripMenuItem, Me.ToolStripSeparator6, Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForUpdatesToolStripMenuItem, Me.ToolStripMenuItem2, Me.ToolStripSeparator6, Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
@@ -387,7 +388,7 @@ Partial Class Form1
         Me.CheckForUpdatesToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.Updates
         Me.CheckForUpdatesToolStripMenuItem.Name = "CheckForUpdatesToolStripMenuItem"
         Me.CheckForUpdatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CheckForUpdatesToolStripMenuItem.Text = "Check for Updates"
+        Me.CheckForUpdatesToolStripMenuItem.Text = "Check for Updates..."
         '
         'ToolStripSeparator6
         '
@@ -399,7 +400,7 @@ Partial Class Form1
         Me.AboutToolStripMenuItem.Image = Global.Notes.My.Resources.Resources.About
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
+        Me.AboutToolStripMenuItem.Text = "About..."
         '
         'StatusStrip1
         '
@@ -695,6 +696,12 @@ Partial Class Form1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem2.Text = "What's New !..."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -804,4 +811,5 @@ Partial Class Form1
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
 End Class
