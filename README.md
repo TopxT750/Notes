@@ -1,20 +1,23 @@
 # Notes  ![Logo](https://github.com/TopxT750/Notes/blob/release/Notes/Resources/Notes.png)
 
-Notes is a modern and sleek application designed to help users optimize and manage their works efficiently. Inspired by Windows Notepad, this application provides a user-friendly interface and powerful features to keep your notes saved smoothly.
+Notes is a modern and sleek application designed to help users efficiently manage their notes and text documents. Inspired by Windows Notepad, this application provides a user-friendly interface and powerful features to enhance your note-taking and text editing experience.
 
 ## Features
 
-- **System Optimization**: Clean junk files, manage startup programs, and optimize system performance.
-- **Resource Monitoring**: Monitor CPU, RAM, disk usage, and network activity in real-time.
-- **Software Management**: Install, update, and uninstall applications seamlessly.
-- **Custom Installer**: A modern, easy-to-use installer for deploying the application.
+- **Multi-Tab Interface**: Work with multiple documents simultaneously using tabbed browsing.
+- **Rich Text Formatting**: Customize your text with various fonts, colors, and styles.
+- **File Management**: Easily open, save, and manage text and rich text files.
+- **Custom Title Bar**: Enjoy a modern look with a borderless form and custom title bar.
+- **Search and Replace**: Quickly find and replace text within your documents.
+- **Auto-Save**: Automatically save your documents at regular intervals.
+- **Dark Mode**: Reduce eye strain with an optional dark theme.
+- **Print Support**: Print your documents directly from the application.
 
 ## Screenshots
 
 ![Main Interface]()
-![image]()
-![image]()
-
+![Multi-Tab Interface]()
+![Rich Text Formatting]()
 
 ## Installation
 
@@ -31,7 +34,7 @@ Notes is a modern and sleek application designed to help users optimize and mana
 
 ## Building from Source
 
-To build PC Manager from the source code, follow these steps:
+To build Notes from the source code, follow these steps:
 
 ### Prerequisites
 
@@ -61,17 +64,22 @@ To build PC Manager from the source code, follow these steps:
 
 ## Usage
 
-1. **System Optimization**:
-   - Open the application and navigate to the `System Optimization` tab.
-   - Click `Scan` to detect junk files and other optimizable areas.
-   - Click `Clean` to optimize your system.
+1. **Multi-Tab Interface**:
+   - Click the `New Tab` button to create a new tab for your document.
+   - Each new tab will be named "New Note 1", "New Note 2", and so on.
 
-2. **Resource Monitoring**:
-   - Navigate to the `Resource Monitoring` tab to view real-time statistics of CPU, RAM, disk usage, and network activity.
+2. **Rich Text Formatting**:
+   - Use the formatting toolbar to change fonts, text color, and apply styles like bold or italics.
 
-3. **Software Management**:
-   - Go to the `Software Management` tab to see installed applications.
-   - Use the `Install`, `Update`, or `Uninstall` buttons to manage your software.
+3. **File Management**:
+   - Open documents from the `File` menu.
+   - Save your work with `Save` or `Save As` options.
+
+4. **Search and Replace**:
+   - Use the `Edit` menu to find and replace text within your document.
+
+5. **Dark Mode**:
+   - Toggle dark mode from the `View` menu for a more comfortable viewing experience.
 
 ## Contributing
 
@@ -106,8 +114,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-- **Microsoft** for the inspiration from their PC Manager tool.
+- **Microsoft** for the inspiration from their Notepad tool.
 - **Guna UI Framework** for providing modern UI controls.
 - **Open Source Community** for the valuable libraries and tools used in this project.
 
-Thank you for using Notes! We hope it helps you keep your studies running smoothly.
+Thank you for using Notes! We hope it helps you manage your notes and text documents more effectively.
