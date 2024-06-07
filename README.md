@@ -1,20 +1,17 @@
-# PC Manager Application  ![Logo](https://github.com/TopxT750/PC-Manager/blob/master/Resources/PC%20Manager.png)
+# Notes  ![Logo](https://github.com/TopxT750/Notes/blob/release/Notes/Resources/Notes.png)
 
-PC Manager is a modern and sleek application designed to help users optimize and manage their computers efficiently. Inspired by popular PC management tools like Microsoft's PC Manager, this application provides a user-friendly interface and powerful features to keep your system running smoothly.
+Notes is a modern and sleek application designed to help users efficiently manage their notes and text documents. Inspired by Windows Notepad, this application provides a user-friendly interface and powerful features to enhance your note-taking and text editing experience.
 
 ## Features
 
-- **System Optimization**: Clean junk files, manage startup programs, and optimize system performance.
-- **Resource Monitoring**: Monitor CPU, RAM, disk usage, and network activity in real-time.
-- **Software Management**: Install, update, and uninstall applications seamlessly.
-- **Custom Installer**: A modern, easy-to-use installer for deploying the application.
+- **Multi-Tab Interface**: Work with multiple documents simultaneously using tabbed browsing.
+- **Rich Text Formatting**: Customize your text with various fonts, colors, and styles.
+- **File Management**: Easily open, save, and manage text and rich text files.
+- **Custom Title Bar**: Enjoy a modern look with a borderless form and custom title bar.
 
 ## Screenshots
 
-![Main Interface](https://github.com/TopxT750/PC-Manager/assets/71926499/1b38ffc2-a313-49d1-9182-b0d09e7ddbd7)
-![image](https://github.com/TopxT750/PC-Manager/assets/71926499/57d75f4e-3328-4355-a0b5-9e5e731aeb7b)
-![image](https://github.com/TopxT750/PC-Manager/assets/71926499/166bbec9-6232-4395-901b-372646b27a04)
-
+![Main Interface](https://github.com/TopxT750/Notes/assets/71926499/67eccf13-2d61-4ae4-a1f2-b52b79d2bfae)
 
 ## Installation
 
@@ -25,13 +22,13 @@ PC Manager is a modern and sleek application designed to help users optimize and
 
 ### Steps
 
-1. **Download the Installer**: Get the latest version of the installer from the [Releases](https://github.com/TopxT750/pc-manager/releases) page.
+1. **Download the Installer**: Get the latest version of the installer from the [Releases](https://github.com/TopxT750/notes/releases) page.
 2. **Run the Installer**: Double-click the installer file and follow the on-screen instructions.
 3. **Launch the Application**: After installation, launch the application from the Start Menu or Desktop shortcut.
 
 ## Building from Source
 
-To build PC Manager from the source code, follow these steps:
+To build Notes from the source code, follow these steps:
 
 ### Prerequisites
 
@@ -43,12 +40,12 @@ To build PC Manager from the source code, follow these steps:
 
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/yourusername/pc-manager.git
-   cd pc-manager
+   git clone https://github.com/yourusername/notes.git
+   cd notes
    ```
 
 2. **Open the Solution**:
-   Open `PC Manager.sln` in Visual Studio.
+   Open `Notes.sln` in Visual Studio.
 
 3. **Restore NuGet Packages**:
    Visual Studio should automatically restore the required NuGet packages. If not, go to `Tools > NuGet Package Manager > Manage NuGet Packages for Solution` and restore them manually.
@@ -61,17 +58,16 @@ To build PC Manager from the source code, follow these steps:
 
 ## Usage
 
-1. **System Optimization**:
-   - Open the application and navigate to the `System Optimization` tab.
-   - Click `Scan` to detect junk files and other optimizable areas.
-   - Click `Clean` to optimize your system.
+1. **Multi-Tab Interface**:
+   - Click the `New Tab` button to create a new tab for your document.
+   - Each new tab will be named "New Note 1", "New Note 2", and so on.
 
-2. **Resource Monitoring**:
-   - Navigate to the `Resource Monitoring` tab to view real-time statistics of CPU, RAM, disk usage, and network activity.
+2. **Rich Text Formatting**:
+   - Use the formatting toolbar to change fonts, text color, and apply styles like bold or italics.
 
-3. **Software Management**:
-   - Go to the `Software Management` tab to see installed applications.
-   - Use the `Install`, `Update`, or `Uninstall` buttons to manage your software.
+3. **File Management**:
+   - Open documents from the `File` menu.
+   - Save your work with `Save` or `Save As` options.
 
 ## Contributing
 
@@ -82,8 +78,8 @@ Contributions are welcome! If you have suggestions for new features, improvement
 1. **Fork the Repository**: Click the `Fork` button at the top right of this page.
 2. **Clone Your Fork**:
    ```sh
-   git clone https://github.com/yourusername/pc-manager.git
-   cd pc-manager
+   git clone https://github.com/yourusername/notes.git
+   cd notes
    ```
 3. **Create a Branch**:
    ```sh
@@ -106,11 +102,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-- **Microsoft** for the inspiration from their PC Manager tool.
+- **Microsoft** for the inspiration from their Notepad tool.
 - **Guna UI Framework** for providing modern UI controls.
 - **Open Source Community** for the valuable libraries and tools used in this project.
 
----
-
-Thank you for using PC Manager! We hope it helps you keep your system running smoothly.
-```
+Thank you for using Notes! We hope it helps you manage your notes and text documents more effectively.
