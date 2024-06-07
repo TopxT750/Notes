@@ -11,9 +11,7 @@ Notes is a modern and sleek application designed to help users efficiently manag
 
 ## Screenshots
 
-![Main Interface]()
-![Multi-Tab Interface]()
-![Rich Text Formatting]()
+![Main Interface](https://github.com/TopxT750/Notes/assets/71926499/67eccf13-2d61-4ae4-a1f2-b52b79d2bfae)
 
 ## Installation
 
