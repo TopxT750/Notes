@@ -1,4 +1,4 @@
-# Notes  ![Logo](https://github.com/TopxT750/PC-Manager/blob/master/Resources/PC%20Manager.png)
+# Notes  ![Logo](https://github.com/TopxT750/Notes/blob/master/Resources/Notes.png)
 
 Notes is a modern and sleek application designed to help users optimize and manage their works efficiently. Inspired by Windows Notepad, this application provides a user-friendly interface and powerful features to keep your notes saved smoothly.
 
@@ -11,9 +11,9 @@ Notes is a modern and sleek application designed to help users optimize and mana
 
 ## Screenshots
 
-![Main Interface](https://github.com/TopxT750/PC-Manager/assets/71926499/1b38ffc2-a313-49d1-9182-b0d09e7ddbd7)
-![image](https://github.com/TopxT750/PC-Manager/assets/71926499/57d75f4e-3328-4355-a0b5-9e5e731aeb7b)
-![image](https://github.com/TopxT750/PC-Manager/assets/71926499/166bbec9-6232-4395-901b-372646b27a04)
+![Main Interface]()
+![image]()
+![image]()
 
 
 ## Installation
@@ -25,7 +25,7 @@ Notes is a modern and sleek application designed to help users optimize and mana
 
 ### Steps
 
-1. **Download the Installer**: Get the latest version of the installer from the [Releases](https://github.com/TopxT750/pc-manager/releases) page.
+1. **Download the Installer**: Get the latest version of the installer from the [Releases](https://github.com/TopxT750/notes/releases) page.
 2. **Run the Installer**: Double-click the installer file and follow the on-screen instructions.
 3. **Launch the Application**: After installation, launch the application from the Start Menu or Desktop shortcut.
 
@@ -82,8 +82,8 @@ Contributions are welcome! If you have suggestions for new features, improvement
 1. **Fork the Repository**: Click the `Fork` button at the top right of this page.
 2. **Clone Your Fork**:
    ```sh
-   git clone https://github.com/yourusername/pc-manager.git
-   cd pc-manager
+   git clone https://github.com/yourusername/notes.git
+   cd notes
    ```
 3. **Create a Branch**:
    ```sh
@@ -110,4 +110,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **Guna UI Framework** for providing modern UI controls.
 - **Open Source Community** for the valuable libraries and tools used in this project.
 
-Thank you for using PC Manager! We hope it helps you keep your system running smoothly.
+Thank you for using Notes! We hope it helps you keep your studies running smoothly.
