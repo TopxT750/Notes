@@ -415,9 +415,14 @@ Public Class Form1
             Dim releaseInfo As ReleaseInfo = Await GetLatestReleaseInfo()
 
             If releaseInfo IsNot Nothing Then
-                MessageBox.Show($"Latest Version: {releaseInfo.Version}" & vbCrLf &
-                            $"Release Notes: {releaseInfo.Description}",
-                            "Latest Release Information", MessageBoxButtons.OK)
+                Dim result As DialogResult = MessageBox.Show($"Latest Version: {releaseInfo.Version}" & vbCrLf &
+                                                          $"Release Notes: {releaseInfo.Description}" & vbCrLf &
+                                                          "Do you want to update to the latest version?",
+                                                          "Latest Release Information", MessageBoxButtons.YesNo)
+
+                If result = DialogResult.Yes Then
+                    Await DownloadAndInstallLatestRelease()
+                End If
             Else
                 MessageBox.Show("Failed to retrieve release information from the server.",
                             "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -427,6 +432,7 @@ Public Class Form1
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
     Private Async Function GetLatestReleaseInfo() As Task(Of ReleaseInfo)
         Try
