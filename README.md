@@ -1,4 +1,4 @@
-# Notes  ![Logo](https://github.com/TopxT750/Notes/blob/master/Resources/Notes.png)
+# Notes  ![Logo](https://github.com/TopxT750/Notes/blob/master/Resources/Notes.png](https://github.com/TopxT750/Notes/blob/release/Notes/Resources/Notes.png)
 
 Notes is a modern and sleek application designed to help users optimize and manage their works efficiently. Inspired by Windows Notepad, this application provides a user-friendly interface and powerful features to keep your notes saved smoothly.
 
