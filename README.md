@@ -8,10 +8,6 @@ Notes is a modern and sleek application designed to help users efficiently manag
 - **Rich Text Formatting**: Customize your text with various fonts, colors, and styles.
 - **File Management**: Easily open, save, and manage text and rich text files.
 - **Custom Title Bar**: Enjoy a modern look with a borderless form and custom title bar.
-- **Search and Replace**: Quickly find and replace text within your documents.
-- **Auto-Save**: Automatically save your documents at regular intervals.
-- **Dark Mode**: Reduce eye strain with an optional dark theme.
-- **Print Support**: Print your documents directly from the application.
 
 ## Screenshots
 
@@ -74,12 +70,6 @@ To build Notes from the source code, follow these steps:
 3. **File Management**:
    - Open documents from the `File` menu.
    - Save your work with `Save` or `Save As` options.
-
-4. **Search and Replace**:
-   - Use the `Edit` menu to find and replace text within your document.
-
-5. **Dark Mode**:
-   - Toggle dark mode from the `View` menu for a more comfortable viewing experience.
 
 ## Contributing
 
