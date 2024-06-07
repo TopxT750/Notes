@@ -1,6 +1,6 @@
-# PC Manager Application  ![Logo](https://github.com/TopxT750/PC-Manager/blob/master/Resources/PC%20Manager.png)
+# Notes  ![Logo](https://github.com/TopxT750/PC-Manager/blob/master/Resources/PC%20Manager.png)
 
-PC Manager is a modern and sleek application designed to help users optimize and manage their computers efficiently. Inspired by popular PC management tools like Microsoft's PC Manager, this application provides a user-friendly interface and powerful features to keep your system running smoothly.
+Notes is a modern and sleek application designed to help users optimize and manage their works efficiently. Inspired by Windows Notepad, this application provides a user-friendly interface and powerful features to keep your notes saved smoothly.
 
 ## Features
 
@@ -43,12 +43,12 @@ To build PC Manager from the source code, follow these steps:
 
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/yourusername/pc-manager.git
-   cd pc-manager
+   git clone https://github.com/yourusername/notes.git
+   cd notes
    ```
 
 2. **Open the Solution**:
-   Open `PC Manager.sln` in Visual Studio.
+   Open `Notes.sln` in Visual Studio.
 
 3. **Restore NuGet Packages**:
    Visual Studio should automatically restore the required NuGet packages. If not, go to `Tools > NuGet Package Manager > Manage NuGet Packages for Solution` and restore them manually.
