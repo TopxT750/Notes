@@ -104,6 +104,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **Microsoft** for the inspiration from their Notepad tool.
 - **Guna UI Framework** for providing modern UI controls.
+- **Icons8** for the valuable icons used in this project.
 - **Open Source Community** for the valuable libraries and tools used in this project.
 
 Thank you for using Notes! We hope it helps you manage your notes and text documents more effectively.
